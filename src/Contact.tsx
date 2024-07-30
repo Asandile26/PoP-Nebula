@@ -1,5 +1,4 @@
 import { useState, ChangeEvent, FormEvent } from "react";
-import "bootstrap/dist/css/bootstrap.css";
 import "./contact.css";
 
 interface FormData {
