@@ -29,20 +29,21 @@ jobs:
 
     - name: Install npm dependencies
       run: npm install
-      working-directory: xebec-frontend
-      display-name: "Install npm dependencies"
+      working-directory: src
 
     - name: Update npm to the latest version
       run: |
         npm install -g npm@latest
         echo "Updated npm to latest version"
-      display-name: "Update npm"
 
     - name: Install project dependencies
       run: npm ci
+      working-directory: src
 
     - name: Build the project
       run: npm run build --if-present
+      working-directory: src
 
     - name: Run tests
       run: npm test
+      working-directory: src
