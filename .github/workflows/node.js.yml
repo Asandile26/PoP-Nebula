@@ -11,7 +11,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
@@ -21,15 +20,29 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
 
-    - name: Install dependencies
+    - name: Install npm dependencies
+      run: npm install
+      working-directory: xebec-frontend
+      display-name: "Install npm dependencies"
+
+    - name: Update npm to the latest version
+      run: |
+        npm install -g npm@latest
+        echo "Updated npm to latest version"
+      display-name: "Update npm"
+
+    - name: Install project dependencies
       run: npm ci
 
-    - run: npm run build --if-present
+    - name: Build the project
+      run: npm run build --if-present
 
-    - run: npm test
+    - name: Run tests
+      run: npm test
