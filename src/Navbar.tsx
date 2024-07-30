@@ -13,6 +13,8 @@ function Navbar() {
         <li><a href="#projects">Projects</a></li>
         <li><a href="#testimonials">Testimonials</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li><a href="#login">login</a></li>
+        <li><a href="#register">register</a></li>
       </ul>
     </nav>
   </div>
