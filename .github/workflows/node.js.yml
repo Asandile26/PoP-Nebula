@@ -27,5 +27,12 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm ci
+
+    - name: Verify Bootstrap Installation
+      run: |
+        if [ ! -f node_modules/bootstrap/dist/css/bootstrap.css ]; then
+          echo "Bootstrap is not installed correctly";
+          exit 1;
+        fi
     - run: npm run build --if-present
     - run: npm test
