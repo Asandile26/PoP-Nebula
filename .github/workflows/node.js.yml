@@ -29,7 +29,7 @@ jobs:
 
     - name: Install npm dependencies
       run: npm install
-      working-directory: vite-project
+     
 
     - name: Update npm to the latest version
       run: |
@@ -42,7 +42,7 @@ jobs:
 
     - name: Build the project
       run: npm run build --if-present
-      working-directory: src
+     
 
     - name: Run tests
       run: npm test
