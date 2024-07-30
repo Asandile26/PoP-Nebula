@@ -26,7 +26,12 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm ci
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Ensure Bootstrap is installed
+      run: npm install bootstrap
 
     - name: Verify Bootstrap Installation
       run: |
@@ -34,5 +39,7 @@ jobs:
           echo "Bootstrap is not installed correctly";
           exit 1;
         fi
+
     - run: npm run build --if-present
+
     - run: npm test
